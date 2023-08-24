@@ -1,0 +1,12 @@
+all: dbclient dbserver
+
+dbclient: dbclient.c msg.h
+	gcc dbclient.c -o dbclient -Wall -Werror -std=gnu99 -pthread
+
+dbserver: dbserver.c msg.h
+	gcc dbserver.c -o dbserver -Wall -Werror -std=gnu99 -pthread
+
+clean:
+	rm -f dbclient dbserver
+
+.PHONY: all clean dbclient dbserver
